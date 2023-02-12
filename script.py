@@ -75,11 +75,11 @@ if __name__ == "__main__":
                     file_to_write.write(output)
 
                     # *****************************
-                    # ********* Subfind3r *********
+                    # ********* Sublist3r *********
                     # *****************************
-                    current_process = "Subfinder"
+                    current_process = "Sublist3r"
                     print(f"Executing: {current_process}...")
-                    subdomains = subprocess.run(["subfinder", "-d", domain], capture_output=True)
+                    subdomains = subprocess.run(["sublist3r", "-d", domain], capture_output=True)
                     output = subdomains.stdout.decode()
                     if subdomains.returncode != 0:
                         message = f"[ERROR] {current_process}"
