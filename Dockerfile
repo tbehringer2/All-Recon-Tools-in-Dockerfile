@@ -22,5 +22,7 @@ RUN pip install fierce
 
 # RUN go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
 
+COPY config.ini /$HOME/.config/amass/
+COPY script.py /app
 
 RUN export PATH=$PATH:/app/massdns/bin
