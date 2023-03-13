@@ -16,6 +16,6 @@ jobs:
     steps:
       - name: Get options from file
         id: get_options
-        run: echo "::set-output name=options::$(cat destinations.txt)"
+        run: echo "::set-output name=options::$(cat options.txt)"
       - name: Send greeting
         run: echo "hola"
