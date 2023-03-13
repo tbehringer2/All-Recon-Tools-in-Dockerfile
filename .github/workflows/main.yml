@@ -1,4 +1,5 @@
 name: Prueba
+
 on:
   workflow_dispatch:
     inputs:
@@ -7,11 +8,14 @@ on:
         description: "Select the destination"
         default: destination1
         required: true
-        options: ${{ split('\n', file('destinations.txt')) }}
+        options: ${{ steps.get_options.outputs.options }}
 
 jobs:
   greet:
     runs-on: ubuntu-latest
     steps:
-    - name: Send greeting
-      run: echo "hola"
+      - name: Get options from file
+        id: get_options
+        run: echo "::set-output name=options::$(cat destinations.txt)"
+      - name: Send greeting
+        run: echo "hola"
