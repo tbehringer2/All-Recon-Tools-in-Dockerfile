@@ -1,0 +1,19 @@
+name: Prueba
+on:
+  workflow_dispatch:
+    inputs:
+      stage:
+        type: choice
+        description: Deployment stage
+        options: ${{ steps.get_options.outputs.options }}
+        default: dev1
+
+jobs:
+  my_job:
+    runs-on: iamappsec
+    steps:
+      - name: Get options from file
+        id: get_options
+        run: |
+          options=$(cat options.txt)
+          echo "::set-output name=options::$options"
