@@ -8,3 +8,10 @@ on:
         default: destination1
         required: true
         options: ${{ split('\n', file('destinations.txt')) }}
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Send greeting
+      run: echo "hola"
